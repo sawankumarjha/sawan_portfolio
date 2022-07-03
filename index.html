@@ -372,6 +372,7 @@
       });
 
       function view(name, category, client, tools, link, brief, image) {
+        $('.project_inner_images').remove();
         document.getElementById(
           "project_name"
         ).innerHTML = `${name} ( ${category} )`;
@@ -386,17 +387,20 @@
                        >${link}</a>`;
         }
         let img = image.split(",");
+     
         for (var i = 0; i < img.length; i++) {
           document.getElementById(
             "project_img"
-          ).innerHTML += `<img src='${img[i]}' alt="Not Found">`;
+          ).innerHTML += `<img src='${img[i]}' alt="Not Found" class="project_inner_images">`;
         }
         $("#viewer").css("display", "flex");
       }
 
+
       // Close
       $("#close").click(() => {
         $("#viewer").css("display", "none");
+        $('.project_inner_images').remove();
       });
     </script>
   </body>
